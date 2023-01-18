@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/chat.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/typing.css">
+    <title>Chatbox</title>
+</head>
+<body>
+    <div class="form">
+        <h1>contact form</h1>
+    <form class="gform pure-form pure-form-stacked" action="https://script.google.com/macros/s/AKfycbxvl6eK6ZRDOGClBTgLz5snB-Gg2j8Ne-YFu-u_zR4OXd-VxaA1lRpLAHRXB4sOHL1K-g/exec" 
+    method="POST" data-email="">
+        <input type="text" name="name" placeholder="full Name" required>
+        <input type="email" name="email" placeholder="email" required>
+       
+        <textarea name="message" placeholder="message"> </textarea>
+        <button type="submit">Send</button>
+        <!-- Thankyou_message --><br>
+      <div class="thankyou_message" style="display:none;background:none;border:8px solid gray;border-radius:
+      40px;width: 300px;padding-top: 15px;padding-bottom: 40px;padding-left: 20px;padding-right: 20px;"><br><br>
+       <h1>Thanks for contacting us!</h1>
+       <h1>*******</h1>
+       <a href="index.html">go back</a>
+     </div>
+        
+   </form>
+</div>
+<div class="submit">
+    <h1>contact form</h1>
+  
+    <form class="gform pure-form pure-form-stacked" method="POST" data-email=""
+    action="">
+      <div class="form-elements">
+       
+        
+       
+        <input type="text" name="name" placeholder="full Name" required>
+        <input type="email" name="email" placeholder="email" required>
+        
+            
+        <textarea name="message" placeholder="message"> </textarea>
+        <button type="submit">Send</button>
+      </div>
+  
+      <!-- Thankyou_message --><br>
+      <div class="thankyou_message" style="display:none;background:none;border:8px solid gray;border-radius:
+       40px;width: 300px;padding-top: 15px;padding-bottom: 40px;padding-left: 20px;padding-right: 20px;"><br><br>
+        <h1>Thanks for contacting us!</h1>
+        <h1>*******</h1>
+        <a href="index.html">go back</a>
+      </div>
+    </form>
+  </div>
+
+    <div class="container">
+        <div class="chatbox">
+            <div class="chatbox__support">
+                <div class="chatbox__header">
+                    <div class="chatbox__image--header">
+                        <img src="./images/image.png" alt="image">
+                    </div>
+                    <div class="chatbox__content--header">
+                        <h4 class="chatbox__heading--header">Chat support</h4>l
+                        <p class="chatbox__description--header">Manager</p>
+                    </div>
+                </div>
+                <div class="chatbox__messages">
+                    <div>
+                        <div class="messages__item messages__item--visitor">
+                            Can you let me talk to the support?
+                        </div>
+                        <div class="messages__item messages__item--operator">
+                            <! ---  Sure! --->
+                            
+                        </div>
+                        <div class="messages__item messages__item--visitor">
+                            Need your help, I need a developer in my site.
+                        </div>
+                        <div class="messages__item messages__item--operator">
+                           <!--Hi... What is it? I'm a front-end developer, yay!--> 
+                        </div>
+                        <div class="messages__item messages__item--typing">
+                            <span class="messages__dot"></span>
+                            <span class="messages__dot"></span>
+                            <span class="messages__dot"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="chatbox__footer">
+                    <img src="images/emojis.svg" alt="">
+                    <img src="images/microphone.svg" alt="">
+                    <input type="text" placeholder="Write a message...">
+                    <p class="chatbox__send--footer"> <input type="submit" value="send">  </p>
+                    <img src="images/attachment.svg" alt="">
+                </div>
+            </div>
+            <div class="chatbox__button">
+                <button>button</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/Chat.js"></script>
+    <script src="js/app.js"></script>
+    <script data-cfasync="false" type="text/javascript">
+    
+        (function() {
+       function validEmail(email) {
+         var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+         return re.test(email);
+       }
+     
+       function validateHuman(honeypot) {
+         if (honeypot) {
+           console.log("Robot Detected!");
+           return true;
+         } else {
+           console.log("Welcome Human!");
+         }
+       }
+       function getFormData(form) {
+         var elements = form.elements;
+     
+         var fields = Object.keys(elements).filter(function(k) {
+               return (elements[k].name !== "honeypot");
+         }).map(function(k) {
+           if(elements[k].name !== undefined) {
+             return elements[k].name;
+           }else if(elements[k].length > 0){
+             return elements[k].item(0).name;
+           }
+         }).filter(function(item, pos, self) {
+           return self.indexOf(item) == pos && item;
+         });
+     
+         var formData = {};
+         fields.forEach(function(name){
+           var element = elements[name];
+           formData[name] = element.value;
+           if (element.length) {
+             var data = [];
+             for (var i = 0; i < element.length; i++) {
+               var item = element.item(i);
+               if (item.checked || item.selected) {
+                 data.push(item.value);
+               }
+             }
+             formData[name] = data.join(', ');
+           }
+         });
+     
+         // add form-specific values into the data
+         formData.formDataNameOrder = JSON.stringify(fields);
+         formData.formGoogleSheetName = form.dataset.sheet || "sheet1"; // default sheet name
+         formData.formGoogleSendEmail = form.dataset.email || ""; // no email by default
+     
+         console.log(formData);
+         return formData;
+       }
+     
+       function handleFormSubmit(event) {  
+         event.preventDefault();           
+         var form = event.target;
+         var data = getFormData(form);         
+         if( data.email && !validEmail(data.email) ) {   
+           var invalidEmail = form.querySelector(".email-invalid");
+           if (invalidEmail) {
+             invalidEmail.style.display = "block";
+             return false;
+           }
+         } else {
+           disableAllButtons(form);
+           var url = form.action;
+           var xhr = new XMLHttpRequest();
+           xhr.open('POST', url);
+           xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+           xhr.onreadystatechange = function() {
+               console.log(xhr.status, xhr.statusText);
+               console.log(xhr.responseText);
+               var formElements = form.querySelector(".form-elements")
+               if (formElements) {
+                 formElements.style.display = "none"; // hide form
+               }
+               var thankYouMessage = form.querySelector(".thankyou_message");
+               if (thankYouMessage) {
+                 thankYouMessage.style.display = "block";
+               }
+               return;
+           };
+           var encoded = Object.keys(data).map(function(k) {
+               return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
+           }).join('&');
+           xhr.send(encoded);
+         }
+       }
+       
+       function loaded() {
+         console.log("Contact form submission handler loaded successfully.");
+         var forms = document.querySelectorAll("form.gform");
+         for (var i = 0; i < forms.length; i++) {
+           forms[i].addEventListener("submit", handleFormSubmit, false);
+         }
+       };
+       document.addEventListener("DOMContentLoaded", loaded, false);
+     
+       function disableAllButtons(form) {
+         var buttons = form.querySelectorAll("button");
+         for (var i = 0; i < buttons.length; i++) {
+           buttons[i].disabled = true;
+         }
+       }
+     })();
+     
+     
+     
+       </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #1b1c1e;
+    text-align: center;
+}
+
+ .form h1 {
+    font-family: 'Playfair Display',
+        serif;
+    font-size: 59px;
+    color: white;
+    font-weight: 600;
+    padding-bottom: 20px;
+}
+
+.form p {
+    color: #d2d2d2;
+}
+
+.form p,
+input,
+textarea,
+label {
+    font-family: 'Poppins',
+        sans-serif;
+}
+.form {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 5%;
+}
+
+.form form {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 20px 0;
+}
+
+.form input,
+textarea,
+label {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    color: #828282;
+}
+
+.form input,
+textarea {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px solid #828282;
+}
+
+.form input[type=submit] {
+    background-color: #545557;
+    padding: 15px 0;
+    color: white;
+    font-size: 18px;
+    border-bottom: none;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.form input[type=submit]:hover {
+    background: #FFF;
+    color: #1b1c1e;
+}
+
+.form input,
+textarea {
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+}
+
+.form input:focus,
+textarea:focus {
+    outline: 1px solid #828282;
+}
+
+.form a {
+    color: #828282;
+    font-style: italic;
+}
+
+.form a:hover {
+    color: #fff;
+}
